@@ -31,16 +31,11 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath + "/";
     }
 
-    private void Start()
-    {
-        SaveData();
-        LoadData();
-    }
-
     public void SaveData()
     {
         string data = JsonUtility.ToJson(rankingdata);
         File.WriteAllText(path + fileName, data);
+        print(path);
     }
 
     public void LoadData()
