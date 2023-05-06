@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance = null;
 
     [SerializeField] private Text TouchText;
+    [SerializeField] private Image rankingImage;
 
     private void Awake()
     {
@@ -19,14 +20,14 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void Update()
-    {
-        FontCainge();
-    }
-
-    private void FontCainge()  // Coroutine 사용 하는 Method
+    private void Start()
     {
         StartCoroutine(nameof(FontColor_co));
+    }
+
+    private void LateUpdate()
+    {
+        CloseRanking();
     }
 
     IEnumerator FontColor_co()  // Touch The Screen 색상 변경 Coroutine
@@ -37,6 +38,26 @@ public class UIManager : MonoBehaviour
             TouchText.color = Color.black;
             if (TouchText.color.Equals(Color.black)) yield return new WaitForSeconds(1f);
             TouchText.color = Color.white;
+        }
+    }
+
+    public void CloseRanking()
+    {
+        if (rankingImage.gameObject.activeSelf && Input.anyKeyDown)
+        {
+            rankingImage.gameObject.SetActive(false);
+        }
+        else if (!rankingImage.gameObject.activeSelf && Input.anyKeyDown)
+        {
+            Invoke(nameof(GameStart), 0.2f);
+        }
+    }
+
+    public void GameStart()
+    {
+        if (!rankingImage.gameObject.activeSelf)
+        {
+            TouchText.gameObject.SetActive(false);
         }
     }
 }
