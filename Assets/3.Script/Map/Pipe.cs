@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     private float moveSpeed = 15f;
-    private float createPos_X = 70f;
+    private float createPos_X = 150f;
     private float endPos_X = -40f;
 
     private void Update()

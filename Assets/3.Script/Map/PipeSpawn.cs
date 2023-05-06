@@ -27,6 +27,7 @@ public class PipeSpawn : MonoBehaviour
             }
 
             pipePool[i].SetActive(false);
+            pipePool[i].transform.SetParent(this.transform);
         }
     }
 
@@ -38,7 +39,7 @@ public class PipeSpawn : MonoBehaviour
 
     IEnumerator SpawnPipe_co1()
     {
-        WaitForSeconds spawnDelay = new WaitForSeconds(3f);
+        WaitForSeconds spawnDelay = new WaitForSeconds(2f);
         while (true)
         {
             GameObject pipe = pipePool[Random.Range(0, 12)];
@@ -46,6 +47,7 @@ public class PipeSpawn : MonoBehaviour
             if (!pipe.activeSelf)
             {
                 pipe.SetActive(true);
+                
             }
             else
             {
