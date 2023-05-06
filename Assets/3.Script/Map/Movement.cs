@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 
     private void OnEnable()
     {
-        isPlay = true;
+        isPlay = false;
     }
 
     private void Update()
