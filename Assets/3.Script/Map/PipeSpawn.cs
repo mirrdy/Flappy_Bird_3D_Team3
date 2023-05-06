@@ -8,6 +8,9 @@ public class PipeSpawn : MonoBehaviour
     [SerializeField] private GameObject[] pipePrefab;
     [SerializeField] private GameObject itemSpawner;
 
+    // Touch 해서 게임 시작되면 True로 
+    private bool isSpawnPipe;
+
     private int poolCount = 12;
     private int itemSpawnCount = 0;
     private void Awake()
@@ -39,7 +42,7 @@ public class PipeSpawn : MonoBehaviour
     IEnumerator SpawnPipe_co1()
     {
         WaitForSeconds spawnDelay = new WaitForSeconds(2f);
-        while (true)
+        while (isSpawnPipe)
         {
             int randNum = Random.Range(0, 12);
             GameObject pipe = pipePool[randNum];
@@ -52,8 +55,7 @@ public class PipeSpawn : MonoBehaviour
                     itemSpawner.TryGetComponent(out ItemSpawner itemSpawn);
                     itemSpawn.ItemSpawn(randNum);
                     itemSpawnCount = 0;
-                }
-                
+                }                
             }
             else
             {

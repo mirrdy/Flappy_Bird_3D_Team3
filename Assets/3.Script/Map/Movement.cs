@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 
     public bool isPlay;
 
-    private void Awake()
+    private void OnEnable()
     {
         isPlay = true;
     }
