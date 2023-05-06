@@ -5,19 +5,19 @@ using System.IO;
 
 public class RankingData
 {
-    public int Ranking = 1;
-    public string name = "¤±¤±¤±";
-    public float time = 0;
+    public List<int> Ranking;
+    public List<string> name;
+    public List<float> time;
 }
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance = null;
 
-    RankingData[] rankingdata = new RankingData[11];
+    RankingData rankingdata = new RankingData();
 
     string path;
-    string fileName = "RankingData";
+    string fileName = "RankingData.json";
 
     private void Awake()
     {
@@ -28,33 +28,36 @@ public class DataManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        path = Application.dataPath + "/";
+        path = Application.dataPath + "/Resources/";
+
+        rankingdata.Ranking = new List<int>();
+        rankingdata.name = new List<string>();
+        rankingdata.time = new List<float>();
     }
 
-    public void Start()
+    public void SaveData(string name, float time)
     {
-        SaveData();
-        LoadData();
-    }
+        string data;
 
-    public void SaveData()
-    {
-        string[] data = new string[11];
-        for (int i = 0; i < rankingdata.Length; i++)
-        {
-            data[i] = JsonUtility.ToJson(rankingdata[i]);
-            File.WriteAllText(path + fileName, data[i]);
-        }
-        print(path);
+        /*rankingdata.name.Add(name);
+        rankingdata.time.Add(time);*/
+
+        data = JsonUtility.ToJson(rankingdata);
+        File.WriteAllText(path + fileName, data);
     }
 
     public void LoadData()
     {
         string data = File.ReadAllText(path + fileName);
-        for (int i = 0; i < rankingdata.Length; i++)
+        for (int i = 0; i < 11; i++)
         {
-            rankingdata[i] = JsonUtility.FromJson<RankingData>(data);
+            rankingdata = JsonUtility.FromJson<RankingData>(data);
         }
-        print(data);
+    }
+
+    public RankingData ShuffleList(RankingData rankingdata)
+    {
+
+        return rankingdata;
     }
 }
