@@ -6,7 +6,7 @@ using System.IO;
 public class RankingData
 {
     public int Ranking = 1;
-    public string name = "¤±¤±¤±";
+    public string name = " ";
     public float time = 0;
 }
 
@@ -44,8 +44,8 @@ public class DataManager : MonoBehaviour
         {
             data[i] = JsonUtility.ToJson(rankingdata[i]);
             File.WriteAllText(path + fileName, data[i]);
+            print(data[i]);
         }
-        print(path);
     }
 
     public void LoadData()
@@ -55,6 +55,5 @@ public class DataManager : MonoBehaviour
         {
             rankingdata[i] = JsonUtility.FromJson<RankingData>(data);
         }
-        print(data);
     }
 }
