@@ -6,11 +6,10 @@ public class PipeSpawn : MonoBehaviour
 {
     [SerializeField] private GameObject[] pipePool;
     [SerializeField] private GameObject[] pipePrefab;
+    [SerializeField] private GameObject itemSpawner;
 
     private int poolCount = 12;
-
-    private bool canSpawn = false;
-
+    private int itemSpawnCount = 0;
     private void Awake()
     {
         pipePool = new GameObject[poolCount];
@@ -42,11 +41,18 @@ public class PipeSpawn : MonoBehaviour
         WaitForSeconds spawnDelay = new WaitForSeconds(2f);
         while (true)
         {
-            GameObject pipe = pipePool[Random.Range(0, 12)];
-
+            int randNum = Random.Range(0, 12);
+            GameObject pipe = pipePool[randNum];
             if (!pipe.activeSelf)
             {
                 pipe.SetActive(true);
+                itemSpawnCount++;
+                if(itemSpawnCount >= 10)
+                {
+                    itemSpawner.TryGetComponent(out ItemSpawner itemSpawn);
+                    itemSpawn.ItemSpawn(randNum);
+                    itemSpawnCount = 0;
+                }
                 
             }
             else
