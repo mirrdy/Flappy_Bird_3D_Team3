@@ -5,16 +5,16 @@ using System.IO;
 
 public class RankingData
 {
-    public int Ranking;
-    public string name;
-    public float time;
+    public int Ranking = 1;
+    public string name = "けけけ";
+    public float time = 0;
 }
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance = null;
 
-    RankingData rankingdata = new RankingData();
+    RankingData[] rankingdata = new RankingData[11];
 
     string path;
     string fileName = "RankingData";
@@ -28,7 +28,20 @@ public class DataManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        path = Application.persistentDataPath + "/";
+        path = Application.dataPath + "Saves/";
+
+        for (int i = 0; i < rankingdata.Length; i++)
+        {
+            rankingdata[i].Ranking = 1;
+            rankingdata[i].name = "けけけ";
+            rankingdata[i].time = 0f;
+        }
+    }
+
+    public void Start()
+    {
+        SaveData();
+        LoadData();
     }
 
     public void SaveData()
@@ -41,7 +54,7 @@ public class DataManager : MonoBehaviour
     public void LoadData()
     {
         string data = File.ReadAllText(path + fileName);
-        rankingdata = JsonUtility.FromJson<RankingData>(data);
+        rankingdata[1] = JsonUtility.FromJson<RankingData>(data);
         print(data);
     }
 }
