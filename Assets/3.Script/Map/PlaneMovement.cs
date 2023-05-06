@@ -13,7 +13,7 @@ public class PlaneMovement : MonoBehaviour
 
         if (transform.position.x < -width * 3)
         {
-            transform.position = Vector3.right * width * 2;
+            transform.position = Vector3.right * width * 3;
         }
     }
 }

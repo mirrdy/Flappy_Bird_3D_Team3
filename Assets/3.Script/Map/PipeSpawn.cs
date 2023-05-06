@@ -27,6 +27,7 @@ public class PipeSpawn : MonoBehaviour
             }
 
             pipePool[i].SetActive(false);
+            pipePool[i].transform.SetParent(this.transform);
         }
     }
 
@@ -46,6 +47,7 @@ public class PipeSpawn : MonoBehaviour
             if (!pipe.activeSelf)
             {
                 pipe.SetActive(true);
+                
             }
             else
             {
