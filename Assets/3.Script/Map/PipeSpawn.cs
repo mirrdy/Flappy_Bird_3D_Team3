@@ -38,7 +38,7 @@ public class PipeSpawn : MonoBehaviour
 
     IEnumerator SpawnPipe_co1()
     {
-        WaitForSeconds spawnDelay = new WaitForSeconds(3f);
+        WaitForSeconds spawnDelay = new WaitForSeconds(2f);
         while (true)
         {
             GameObject pipe = pipePool[Random.Range(0, 12)];
