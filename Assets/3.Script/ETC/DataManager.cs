@@ -28,14 +28,7 @@ public class DataManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        path = Application.dataPath + "Saves/";
-
-        for (int i = 0; i < rankingdata.Length; i++)
-        {
-            rankingdata[i].Ranking = 1;
-            rankingdata[i].name = "¤±¤±¤±";
-            rankingdata[i].time = 0f;
-        }
+        path = Application.dataPath + "/";
     }
 
     public void Start()
@@ -46,15 +39,22 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        string data = JsonUtility.ToJson(rankingdata);
-        File.WriteAllText(path + fileName, data);
+        string[] data = new string[11];
+        for (int i = 0; i < rankingdata.Length; i++)
+        {
+            data[i] = JsonUtility.ToJson(rankingdata[i]);
+            File.WriteAllText(path + fileName, data[i]);
+        }
         print(path);
     }
 
     public void LoadData()
     {
         string data = File.ReadAllText(path + fileName);
-        rankingdata[1] = JsonUtility.FromJson<RankingData>(data);
+        for (int i = 0; i < rankingdata.Length; i++)
+        {
+            rankingdata[i] = JsonUtility.FromJson<RankingData>(data);
+        }
         print(data);
     }
 }
