@@ -2359,6 +2359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61254659}
   - component: {fileID: 61254660}
+  - component: {fileID: 61254661}
   m_Layer: 0
   m_Name: Plane_2
   m_TagString: Untagged
@@ -2398,6 +2399,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eac65857edb86640a74d7c13a4a0916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &61254661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61254658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!1001 &63510504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19789,8 +19803,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 64047276465474366, guid: 47ded181e73460047bae5118c0254d3e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ded181e73460047bae5118c0254d3e, type: 3}
 --- !u!4 &499622196 stripped
 Transform:
@@ -27044,6 +27057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670119407}
   - component: {fileID: 670119408}
+  - component: {fileID: 670119409}
   m_Layer: 0
   m_Name: Plane_6
   m_TagString: Untagged
@@ -27083,6 +27097,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eac65857edb86640a74d7c13a4a0916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &670119409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670119406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!1001 &670791400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36365,10 +36392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1730210214}
     m_Modifications:
-    - target: {fileID: 803019497602220624, guid: e1eaa02314a382d4193af3de770677f6, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 803019497602220625, guid: e1eaa02314a382d4193af3de770677f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63124,6 +63147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439046475}
   - component: {fileID: 1439046474}
+  - component: {fileID: 1439046476}
   m_Layer: 0
   m_Name: Plane_1
   m_TagString: Untagged
@@ -63163,6 +63187,19 @@ Transform:
   m_Father: {fileID: 1957533058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439046476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439046473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!4 &1439780390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5023827496289240853, guid: a79279818571b6848a9ccb8dcb36dd2c, type: 3}
@@ -68648,10 +68685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1730210214}
     m_Modifications:
-    - target: {fileID: 8730119249068889060, guid: 89364a38eefe93d4495fa803300fc501, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8730119249068889062, guid: 89364a38eefe93d4495fa803300fc501, type: 3}
       propertyPath: m_Name
       value: Clouds2Layer
@@ -80853,6 +80886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835521918}
   - component: {fileID: 1835521919}
+  - component: {fileID: 1835521920}
   m_Layer: 0
   m_Name: Plane_5
   m_TagString: Untagged
@@ -80892,6 +80926,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eac65857edb86640a74d7c13a4a0916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1835521920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835521917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!1001 &1836689816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83277,6 +83324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916836038}
   - component: {fileID: 1916836039}
+  - component: {fileID: 1916836040}
   m_Layer: 0
   m_Name: Plane_4
   m_TagString: Untagged
@@ -83316,6 +83364,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eac65857edb86640a74d7c13a4a0916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1916836040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916836037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!1001 &1919929478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89182,6 +89243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034337949}
   - component: {fileID: 2034337950}
+  - component: {fileID: 2034337951}
   m_Layer: 0
   m_Name: Plane_3
   m_TagString: Untagged
@@ -89221,6 +89283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eac65857edb86640a74d7c13a4a0916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2034337951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034337948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
 --- !u!1001 &2036650440
 PrefabInstance:
   m_ObjectHideFlags: 0

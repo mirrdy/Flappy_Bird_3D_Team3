@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    private float moveSpeed = 15f;
     private float createPos_X = 150f;
     private float endPos_X = -40f;
 
+    [SerializeField] private Movement movement;
+
+
     private void Update()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         if(transform.position.x <= endPos_X)
         {
             gameObject.SetActive(false);
@@ -19,6 +20,7 @@ public class Pipe : MonoBehaviour
 
     private void OnEnable()
     {
+        movement.isPlay = true;
         transform.position = new Vector3(createPos_X, 0, 0);
     }
 

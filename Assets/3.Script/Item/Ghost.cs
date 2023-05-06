@@ -5,21 +5,23 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     private float itemTime = 5f;
-    private float moveSpeed = 15f;
     private float endPos_X = -50f;
+
+    [SerializeField] private Movement movement;
+
     private void OnEnable()
     {
-        moveSpeed = 15f;
+        movement.isPlay = true;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             StartCoroutine(GhostItem_co(collision));
             transform.position = new Vector3(collision.transform.position.x-40, 0, collision.transform.position.z);
-            moveSpeed = 0f;
-        }
-        
+            movement.isPlay = false;
+        }     
     }
 
     private IEnumerator GhostItem_co(Collision collision)
@@ -36,7 +38,6 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         if (transform.position.x <= endPos_X)
         {
             gameObject.SetActive(false);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1613644138449525468}
   - component: {fileID: 2410716918759128003}
   - component: {fileID: 6421621307348049888}
+  - component: {fileID: -474190617483013741}
   m_Layer: 0
   m_Name: GhostItem
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3f80dd1279b0041892334a09aef9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: -474190617483013741}
 --- !u!65 &6421621307348049888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,3 +110,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.797263, y: 0.85131, z: 0.6055229}
   m_Center: {x: 0.00000031292439, y: -0.000000014901161, z: -0.00000011920929}
+--- !u!114 &-474190617483013741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964945403252538121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlay: 0
