@@ -6,54 +6,64 @@ public class PlayerController : MonoBehaviour
 {
     private Touch touch;
     private Rigidbody myRigid;
+    private float mag = 15f;
+    private Vector3 force;
 
     private void Awake()
     {
         TryGetComponent(out myRigid);
+        force = Vector3.up * mag;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isGameOver)
+        {
+            return;
+        }
         InputTouch();
     }
 
     private void InputTouch()
     {
-        touch = Input.GetTouch(0);
-        TouchPhase touchPhase = touch.phase;
-
-        switch(touchPhase)
+        if (Input.touchCount > 0)
         {
-            case TouchPhase.Began:
-                {
-                    myRigid.AddForce(Vector3.up);
-                    break;
-                }
-            case TouchPhase.Moved:
-                {
-                    myRigid.AddForce(Vector3.up);
-                    break;
-                }
-            case TouchPhase.Stationary:
-                {
-                    myRigid.AddForce(Vector3.up);
-                    break;
-                }
-            case TouchPhase.Ended:
-                {
-                    break;
-                }
-            case TouchPhase.Canceled:
-                {
-                    break;
-                }
+            touch = Input.GetTouch(0);
+            TouchPhase touchPhase = touch.phase;
+
+            switch (touchPhase)
+            {
+                case TouchPhase.Began:
+                    {
+                        myRigid.AddForce(force);
+                        break;
+                    }
+                case TouchPhase.Moved:
+                    {
+                        myRigid.AddForce(force);
+                        break;
+                    }
+                case TouchPhase.Stationary:
+                    {
+                        myRigid.AddForce(force);
+                        break;
+                    }
+                case TouchPhase.Ended:
+                    {
+                        break;
+                    }
+                case TouchPhase.Canceled:
+                    {
+                        break;
+                    }
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Ãæµ¹");
         GameManager.Instance.isGameOver = true;
-        
+        myRigid.velocity = Vector3.zero;
     }
 }
