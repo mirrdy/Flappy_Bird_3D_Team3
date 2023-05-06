@@ -40,9 +40,6 @@ public class DataManager : MonoBehaviour
             rankingdata.name[i] = "---";
             rankingdata.time[i] = 0f;
         }
-
-        rankingdata.name[10] = "ȫ�浿";
-        rankingdata.time[10] = 125f;
     }
 
     public void Start()
@@ -132,5 +129,19 @@ public class DataManager : MonoBehaviour
                          (int)rankingdata.time[8] / 60 + " : " + (int)rankingdata.time[8] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[9] / 60 + " : " + (int)rankingdata.time[9] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[10] / 60 + " : " + (int)rankingdata.time[10] % 60 + "\n" + "\n";
+    }
+
+    public RankingData InputName(string name)
+    {
+        rankingdata.name[10] = name;
+
+        return rankingdata;
+    }
+
+    public RankingData InputTime(float time)
+    {
+        rankingdata.time[10] = time;
+
+        return rankingdata;
     }
 }
