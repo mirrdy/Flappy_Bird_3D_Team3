@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
     {
         collision.collider.enabled = false;
         collision.transform.GetChild(0).TryGetComponent(out SkinnedMeshRenderer renderer);
-        renderer.material.shader = Shader.Find("UI/Unlit/Transparent");
+        renderer.material.shader = Shader.Find("ParticlesUnlit");
         renderer.material.color = new Color(1, 1, 1, 0.5f);
         yield return new WaitForSeconds(itemTime);
         collision.collider.enabled = true;
