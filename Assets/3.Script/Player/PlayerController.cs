@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private Touch touch;
     private Rigidbody myRigid;
-    private float mag = 15f;
-    private Vector3 force;
+    private float speed = 15f;
+    
     private bool isFlying;
 
 
@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
         TryGetComponent(out myRigid);
         myRigid.useGravity = false;
         GameManager.Instance.onStartGame += (() => isFlying = true);
-        force = Vector3.up * mag;
     }
 
     // Update is called once per frame
@@ -40,29 +39,27 @@ public class PlayerController : MonoBehaviour
             touch = Input.GetTouch(0);
             TouchPhase touchPhase = touch.phase;
 
+            Vector3 dirVector = Vector3.up * speed * Time.deltaTime;
+            
             switch (touchPhase)
             {
-                case TouchPhase.Began:
-                    {
-                        myRigid.AddForce(force);
-                        break;
-                    }
-                case TouchPhase.Moved:
-                    {
-                        myRigid.AddForce(force);
-                        break;
-                    }
+                case TouchPhase.Began: case TouchPhase.Moved:
                 case TouchPhase.Stationary:
                     {
-                        myRigid.AddForce(force);
+                        myRigid.MovePosition(transform.position + dirVector);
                         break;
                     }
-                case TouchPhase.Ended:
+                //case TouchPhase.Ended:
+                //    {
+                //        break;
+                //    }
+                //case TouchPhase.Canceled:
+                //    {
+                //        break;
+                //    }
+                default:
                     {
-                        break;
-                    }
-                case TouchPhase.Canceled:
-                    {
+                        myRigid.MovePosition(transform.position - dirVector);
                         break;
                     }
             }

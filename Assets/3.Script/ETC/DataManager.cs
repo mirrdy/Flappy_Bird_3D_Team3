@@ -37,7 +37,7 @@ public class DataManager : MonoBehaviour
         for(int i = 0; i < rankingdata.Ranking.Length; i++)
         {
             rankingdata.Ranking[i] = 0;
-            rankingdata.name[i] = " ";
+            rankingdata.name[i] = "---";
             rankingdata.time[i] = 0f;
         }
     }
@@ -95,7 +95,7 @@ public class DataManager : MonoBehaviour
                     rankingdata.Ranking[i] = ranking.Ranking[j];
                     rankingdata.name[i] = ranking.name[j];
                     rankingdata.time[i] = ranking.time[j];
-                    rankingdata.name[j] = " ";
+                    rankingdata.name[j] = "---";
                     rankingdata.time[j] = 0f;
                     continue;
                 }
@@ -115,7 +115,8 @@ public class DataManager : MonoBehaviour
                         rankingdata.name[6] + "\n" + "\n" +
                         rankingdata.name[7] + "\n" + "\n" +
                         rankingdata.name[8] + "\n" + "\n" +
-                        rankingdata.name[9] + "\n" + "\n";
+                        rankingdata.name[9] + "\n" + "\n" +
+                        rankingdata.name[10] + "\n" + "\n";
 
         ScoreText.text = (int)rankingdata.time[0] / 60 + " : " + (int)rankingdata.time[0] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[1] / 60 + " : " + (int)rankingdata.time[1] % 60 + "\n" + "\n" +
@@ -126,7 +127,8 @@ public class DataManager : MonoBehaviour
                          (int)rankingdata.time[6] / 60 + " : " + (int)rankingdata.time[6] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[7] / 60 + " : " + (int)rankingdata.time[7] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[8] / 60 + " : " + (int)rankingdata.time[8] % 60 + "\n" + "\n" +
-                         (int)rankingdata.time[9] / 60 + " : " + (int)rankingdata.time[9] % 60 + "\n" + "\n";
+                         (int)rankingdata.time[9] / 60 + " : " + (int)rankingdata.time[9] % 60 + "\n" + "\n" +
+                         (int)rankingdata.time[10] / 60 + " : " + (int)rankingdata.time[10] % 60 + "\n" + "\n";
     }
 
     public RankingData InputName(string name)

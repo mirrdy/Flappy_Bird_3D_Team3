@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 5126006119335097604}
   m_Layer: 0
   m_Name: FlappyTube 1
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 444623444936141589}
   m_Layer: 0
   m_Name: FlappyTube 2
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
