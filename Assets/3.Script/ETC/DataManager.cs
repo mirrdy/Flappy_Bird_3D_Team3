@@ -32,7 +32,7 @@ public class DataManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        path = Application.persistentDataPath + "/Resources/";
+        path = Application.streamingAssetsPath + "/Resources/"; 
 
         LoadData();
     }
