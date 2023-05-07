@@ -9,8 +9,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text TouchText;
     [SerializeField] private Image rankingImage;
-    [SerializeField] private InputField NameInput;
-    [SerializeField] private Image GameOver;
+    [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
 
     private void Awake()
@@ -71,14 +70,7 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.isGameOver)
         {
             NameInput.gameObject.SetActive(true);
-            DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
         }
-    }
-
-    public void GameOver_Image()
-    {
-        GameOver.gameObject.SetActive(true);
-        rankingImage.gameObject.SetActive(true);
     }
 
     public void Timer_output()
@@ -88,5 +80,14 @@ public class UIManager : MonoBehaviour
         int min = Mathf.FloorToInt(time / 60);
         int sec = Mathf.FloorToInt(time % 60);
         Timer.text = string.Format("{0:D2} : {1:D2}", min, sec);
+    }
+
+    public void SetName(string text)
+    {
+        NameInput.text = text;
+        DataManager.instance.InputName(NameInput.text);
+        DataManager.instance.SaveData();
+
+        rankingImage.gameObject.SetActive(true);
     }
 }

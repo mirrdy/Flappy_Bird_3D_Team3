@@ -51,7 +51,7 @@ public class DataManager : MonoBehaviour
         rankingdata = JsonUtility.FromJson<RankingData>(data);
     }
 
-    public RankingData UpdateRank()
+    public void UpdateRank()
     {
         RankingData ranking = new RankingData();
 
@@ -90,7 +90,6 @@ public class DataManager : MonoBehaviour
                 }
             }
         }
-        return rankingdata;
     }
 
     public void Print()
@@ -106,8 +105,7 @@ public class DataManager : MonoBehaviour
                         rankingdata.name[6] + "\n" + "\n" +
                         rankingdata.name[7] + "\n" + "\n" +
                         rankingdata.name[8] + "\n" + "\n" +
-                        rankingdata.name[9] + "\n" + "\n" +
-                        rankingdata.name[10] + "\n" + "\n";
+                        rankingdata.name[9] + "\n" + "\n";
 
         ScoreText.text = (int)rankingdata.time[0] / 60 + " : " + (int)rankingdata.time[0] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[1] / 60 + " : " + (int)rankingdata.time[1] % 60 + "\n" + "\n" +
@@ -118,8 +116,7 @@ public class DataManager : MonoBehaviour
                          (int)rankingdata.time[6] / 60 + " : " + (int)rankingdata.time[6] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[7] / 60 + " : " + (int)rankingdata.time[7] % 60 + "\n" + "\n" +
                          (int)rankingdata.time[8] / 60 + " : " + (int)rankingdata.time[8] % 60 + "\n" + "\n" +
-                         (int)rankingdata.time[9] / 60 + " : " + (int)rankingdata.time[9] % 60 + "\n" + "\n" +
-                         (int)rankingdata.time[10] / 60 + " : " + (int)rankingdata.time[10] % 60 + "\n" + "\n";
+                         (int)rankingdata.time[9] / 60 + " : " + (int)rankingdata.time[9] % 60 + "\n" + "\n";
     }
 
     public void InputName(string name)
@@ -135,7 +132,6 @@ public class DataManager : MonoBehaviour
             if (time > rankingdata.time[i])
             {
                 UIManager.instance.GetName();
-                SaveData();
                 return;
             }
         }
