@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         collider.enabled = false;
         transform.GetChild(0).TryGetComponent(out SkinnedMeshRenderer renderer);
         renderer.material.shader = Shader.Find("GUI/Text Shader");
-        renderer.material.color = new Color32(148, 236, 69, 55);
+        renderer.material.color = new Color32(148, 236, 69, 70);
         yield return new WaitForSeconds(itemTime);
 
         collider.enabled = true;
