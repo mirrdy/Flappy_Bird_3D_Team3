@@ -88,6 +88,12 @@ public class UIManager : MonoBehaviour
         DataManager.instance.InputName(NameInput.text);
         DataManager.instance.SaveData();
 
+        Invoke(nameof(SetName_rate), 0.2f);
+    }
+
+    public void SetName_rate()
+    {
         rankingImage.gameObject.SetActive(true);
+        DataManager.instance.Print();
     }
 }

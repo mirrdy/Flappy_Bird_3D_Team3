@@ -57,7 +57,7 @@ public class DataManager : MonoBehaviour
 
         for (int i = 0; i < rankingdata.Ranking.Length; i++)
         {
-            rankingdata.Ranking[i] = 1;
+            rankingdata.Ranking[i] = 0;
             for (int j = 0; j < rankingdata.Ranking.Length; j++)
             {
                 if (rankingdata.time[i] < rankingdata.time[j] || rankingdata.time[i] == 0f)
@@ -79,7 +79,7 @@ public class DataManager : MonoBehaviour
             
             for (int j = 0; j < rankingdata.Ranking.Length; j++)
             {
-                if(ranking.Ranking[j] == i + 1)
+                if(ranking.Ranking[j] == i)
                 {
                     rankingdata.Ranking[i] = ranking.Ranking[j];
                     rankingdata.name[i] = ranking.name[j];
