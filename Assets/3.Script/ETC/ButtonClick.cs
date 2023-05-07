@@ -12,4 +12,5 @@ public class ButtonClick : MonoBehaviour
         rankingImage.gameObject.SetActive(true);
         DataManager.instance.Print();
     }
+
 }
