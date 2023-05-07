@@ -70,6 +70,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance.isGameOver)
         {
+            NameInput.gameObject.SetActive(true);
             DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
         }
     }
