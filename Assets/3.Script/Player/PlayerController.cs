@@ -74,6 +74,17 @@ public class PlayerController : MonoBehaviour
         {
             Collide();
         }
+        if(collision.collider.CompareTag("Item"))
+        {
+            if(collision.gameObject.TryGetComponent(out Ghost ghost))
+            {
+
+            }
+            else if(collision.gameObject.TryGetComponent(out SmallItem smallItem))
+            {
+
+            }
+        }
     }
     private void Collide()
     {
@@ -82,4 +93,9 @@ public class PlayerController : MonoBehaviour
         myRigid.useGravity = true;
         myRigid.velocity = Vector3.zero;
     }
+
+
+
+
+
 }
