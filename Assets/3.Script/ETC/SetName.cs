@@ -7,10 +7,12 @@ public class SetName : MonoBehaviour
 {
     public InputField inputfield;
     public Text inputName;
+    [SerializeField] private Button Restart;
 
     public void SetInputName()
     {
         UIManager.instance.SetName(inputName.text);
         inputfield.gameObject.SetActive(false);
+        Restart.gameObject.SetActive(true);
     }
 }

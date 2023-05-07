@@ -11,13 +11,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image rankingImage;
     [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
-    [SerializeField] private Button Restart;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }
@@ -95,6 +95,5 @@ public class UIManager : MonoBehaviour
     {
         rankingImage.gameObject.SetActive(true);
         DataManager.instance.Print();
-        Restart.gameObject.SetActive(true);
     }
 }

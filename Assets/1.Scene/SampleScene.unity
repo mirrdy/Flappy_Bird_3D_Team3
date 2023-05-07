@@ -11158,7 +11158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &301995955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16583,7 +16583,6 @@ MonoBehaviour:
   rankingImage: {fileID: 247430905}
   NameInput: {fileID: 474049628}
   Timer: {fileID: 2060605906}
-  Restart: {fileID: 301995956}
 --- !u!4 &425135414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1311534305500314048, guid: 1850815f38acaab4085c2fb6a7ca2928, type: 3}
@@ -18890,6 +18889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputfield: {fileID: 474049628}
   inputName: {fileID: 1177107417}
+  Restart: {fileID: 301995956}
 --- !u!1001 &474564009
 PrefabInstance:
   m_ObjectHideFlags: 0
