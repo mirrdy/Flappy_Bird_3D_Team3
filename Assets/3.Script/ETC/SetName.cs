@@ -13,9 +13,4 @@ public class SetName : MonoBehaviour
         UIManager.instance.SetName(inputName.text);
         inputfield.gameObject.SetActive(false);
     }
-
-    public void Onclick()
-    {
-        TouchScreenKeyboard.Open(" ", TouchScreenKeyboardType.ASCIICapable);
-    }
 }
