@@ -18582,6 +18582,7 @@ GameObject:
   - component: {fileID: 474049630}
   - component: {fileID: 474049629}
   - component: {fileID: 474049628}
+  - component: {fileID: 474049631}
   m_Layer: 5
   m_Name: Ranking Name InputField
   m_TagString: Untagged
@@ -18660,7 +18661,7 @@ MonoBehaviour:
   m_AsteriskChar: 42
   m_KeyboardType: 6
   m_LineType: 0
-  m_HideMobileInput: 0
+  m_HideMobileInput: 1
   m_CharacterValidation: 4
   m_CharacterLimit: 5
   m_OnEndEdit:
@@ -18715,6 +18716,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474049626}
   m_CullTransparentMesh: 1
+--- !u!114 &474049631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474049626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20e9be8d6b05244b8059af0b5d62533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputfield: {fileID: 474049628}
+  inputName: {fileID: 1177107417}
 --- !u!1001 &474564009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48213,7 +48228,6 @@ GameObject:
   - component: {fileID: 1109831298}
   - component: {fileID: 1109831297}
   - component: {fileID: 1109831296}
-  - component: {fileID: 1109831295}
   m_Layer: 5
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -48241,19 +48255,6 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1109831295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109831293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20e9be8d6b05244b8059af0b5d62533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputName: {fileID: 474049628}
 --- !u!114 &1109831296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48298,7 +48299,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1109831295}
+      - m_Target: {fileID: 474049631}
         m_TargetAssemblyTypeName: SetName, Assembly-CSharp
         m_MethodName: SetInputName
         m_Mode: 1

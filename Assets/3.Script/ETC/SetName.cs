@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class SetName : MonoBehaviour
 {
-    public InputField inputName;
+    public InputField inputfield;
+    public Text inputName;
 
     public void SetInputName()
     {
         UIManager.instance.SetName(inputName.text);
-        inputName.gameObject.SetActive(false);
+        inputfield.gameObject.SetActive(false);
     }
 }
