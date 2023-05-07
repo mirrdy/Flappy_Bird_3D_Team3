@@ -68,12 +68,16 @@ public class UIManager : MonoBehaviour
 
     public void GetName()
     {
-        DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
+        if (GameManager.Instance.isGameOver)
+        {
+            DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
+        }
     }
 
     public void GameOver_Image()
     {
         GameOver.gameObject.SetActive(true);
+        rankingImage.gameObject.SetActive(true);
     }
 
     public void Timer_output()
