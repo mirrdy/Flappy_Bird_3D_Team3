@@ -63,11 +63,16 @@ public class GameManager : MonoBehaviour
     }
     public void SetIsPlaying(bool isPlaying)
     {
+        if(this.isPlaying == isPlaying)
+        {
+            return;
+        }
+
         this.isPlaying = isPlaying;
         if (isPlaying)
         {
-            startTime = Time.time;
             onStartGame.Invoke();
+            startTime = Time.time;
         }
     }
 }
