@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
         if (!rankingImage.gameObject.activeSelf)
         {
             TouchText.gameObject.SetActive(false);
+            GameManager.Instance.SetIsPlaying(true);
         }
     }
 
