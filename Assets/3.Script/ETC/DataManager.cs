@@ -72,11 +72,13 @@ public class DataManager : MonoBehaviour
             ranking.Ranking[i] = rankingdata.Ranking[i];
             ranking.name[i] = rankingdata.name[i];
             ranking.time[i] = rankingdata.time[i];
+
+            rankingdata.name[i] = "  ";
+            rankingdata.time[i] = 0f;
         }
 
         for (int i = 0; i < rankingdata.Ranking.Length; i++)
         {
-            
             for (int j = 0; j < rankingdata.Ranking.Length; j++)
             {
                 if(ranking.Ranking[j] == i)
@@ -84,8 +86,6 @@ public class DataManager : MonoBehaviour
                     rankingdata.Ranking[i] = ranking.Ranking[j];
                     rankingdata.name[i] = ranking.name[j];
                     rankingdata.time[i] = ranking.time[j];
-                    rankingdata.name[j] = "  ";
-                    rankingdata.time[j] = 0f;
                     continue;
                 }
             }
