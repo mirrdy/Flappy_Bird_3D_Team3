@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class SetName : MonoBehaviour
 {
     public InputField inputName;
-    public Button inputbutton;
 
     public void SetInputName()
     {

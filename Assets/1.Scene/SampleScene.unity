@@ -18665,19 +18665,7 @@ MonoBehaviour:
   m_CharacterLimit: 5
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1177107419}
-        m_TargetAssemblyTypeName: SetName, Assembly-CSharp
-        m_MethodName: SetInputName
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -48227,7 +48215,7 @@ GameObject:
   - component: {fileID: 1109831296}
   - component: {fileID: 1109831295}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ConfirmButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48262,10 +48250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109831293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd2ea1f7b050c044bac6dfd8c938634, type: 3}
+  m_Script: {fileID: 11500000, guid: c20e9be8d6b05244b8059af0b5d62533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rankingImage: {fileID: 247430905}
+  inputName: {fileID: 474049628}
 --- !u!114 &1109831296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48310,7 +48298,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1177107419}
+      - m_Target: {fileID: 1109831295}
         m_TargetAssemblyTypeName: SetName, Assembly-CSharp
         m_MethodName: SetInputName
         m_Mode: 1
@@ -48321,7 +48309,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1109831297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50825,7 +50813,6 @@ GameObject:
   - component: {fileID: 1177107416}
   - component: {fileID: 1177107418}
   - component: {fileID: 1177107417}
-  - component: {fileID: 1177107419}
   m_Layer: 5
   m_Name: Ranking Name Text
   m_TagString: Untagged
@@ -50894,20 +50881,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177107415}
   m_CullTransparentMesh: 1
---- !u!114 &1177107419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177107415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20e9be8d6b05244b8059af0b5d62533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputName: {fileID: 474049628}
-  inputbutton: {fileID: 1109831296}
 --- !u!1 &1177670087
 GameObject:
   m_ObjectHideFlags: 0
