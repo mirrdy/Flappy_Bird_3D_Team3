@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     private Touch touch;
     private Rigidbody myRigid;
     private float speed = 7f;
-    
+    private float itemTime = 5f;
+
+
     private bool isFlying;
 
 
@@ -78,13 +80,39 @@ public class PlayerController : MonoBehaviour
         {
             if(collision.gameObject.TryGetComponent(out Ghost ghost))
             {
-
+                StartCoroutine(GhostItem_co());
+                //transform.position = new Vector3(collision.transform.position.x - 40, 0, collision.transform.position.z);
             }
             else if(collision.gameObject.TryGetComponent(out SmallItem smallItem))
             {
-
+                StartCoroutine(SmallItem_co());
+                //transform.position = new Vector3(collision.transform.position.x - 40, 0, collision.transform.position.z);
             }
+            collision.gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator GhostItem_co()
+    {
+        TryGetComponent(out BoxCollider collider);
+        collider.enabled = false;
+        transform.GetChild(0).TryGetComponent(out SkinnedMeshRenderer renderer);
+        renderer.material.shader = Shader.Find("UI/Unlit/Transparent");
+        renderer.material.color = new Color(1, 1, 1, 0.5f);
+
+        yield return new WaitForSeconds(itemTime);
+
+        collider.enabled = true;
+        renderer.material.shader = Shader.Find("Unlit/Texture");
+    }
+
+    private IEnumerator SmallItem_co()
+    {
+        transform.localScale *= 0.5f;
+
+        yield return new WaitForSeconds(itemTime);
+
+        transform.localScale *= 2f;
     }
     private void Collide()
     {

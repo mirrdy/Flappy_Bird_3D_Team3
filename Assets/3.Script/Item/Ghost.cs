@@ -18,8 +18,8 @@ public class Ghost : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(GhostItem_co(collision));
-            transform.position = new Vector3(collision.transform.position.x-40, 0, collision.transform.position.z);
+            //StartCoroutine(GhostItem_co(collision));
+            //transform.position = new Vector3(collision.transform.position.x-40, 0, collision.transform.position.z);
             //movement.isPlay = false;
         }     
     }
