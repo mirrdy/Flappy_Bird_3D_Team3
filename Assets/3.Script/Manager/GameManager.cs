@@ -25,19 +25,21 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     public delegate void OnStartGame();
     public event OnStartGame onStartGame;
-    public float startTime = Time.time;
+    public float startTime;
     public float playTime;
-    
+
+    void Start()
+    {
+        startTime = Time.time;
+    }
 
     private void Update()
     {
         playTime = Time.time - startTime;
-        if(!isGameOver)
+        if(isGameOver)
         {
             return;
         }
-
-
     }
 
 
