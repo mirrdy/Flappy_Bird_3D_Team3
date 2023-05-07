@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1859820744260851602}
   m_Layer: 0
   m_Name: Pipe_6
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a012928e2e880cb41ae2aa95825ea4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 7156552066235464645, guid: 7f7debe4ada7e9a458c0ec53efcc8bb5, type: 3}
 --- !u!114 &-1859820744260851602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cf977ebf84f904a98be8cf678a242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlay: 1
 --- !u!1 &3118552750594437280
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        playTime = Time.time - startTime;
         if(isGameOver)
         {
             return;
         }
+        playTime = Time.time - startTime;
     }
 
 

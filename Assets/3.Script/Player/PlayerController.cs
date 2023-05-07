@@ -8,13 +8,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigid;
     private float mag = 15f;
     private Vector3 force;
+    private bool isFlying;
+
 
     private void Awake()
     {
         TryGetComponent(out myRigid);
         myRigid.useGravity = false;
+        GameManager.Instance.onStartGame += (() => isFlying = true);
         force = Vector3.up * mag;
-        GameManager.Instance.onStartGame += (() => myRigid.useGravity = true);
     }
 
     // Update is called once per frame
@@ -68,7 +70,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Collide();
+        if (collision.collider.CompareTag("Pipe"))
+        {
+            Collide();
+        }
     }
     private void Collide()
     {
