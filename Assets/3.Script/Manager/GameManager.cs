@@ -21,12 +21,15 @@ public class GameManager : MonoBehaviour
     }
 
     public int score = 0;
-    private bool isPlaying;
-    public bool isGameOver;
-    public delegate void OnStartGame();
-    public event OnStartGame onStartGame;
+    private bool isPlaying = false;
+    public bool isGameOver = false;
+    public bool isSaved = false;
+    
     public float startTime;
     public float playTime;
+
+    public delegate void OnStartGame();
+    public event OnStartGame onStartGame;
 
     void Start()
     {
@@ -35,10 +38,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        playTime = Time.time - startTime;
         if(isGameOver)
         {
+            if(!isSaved)
+            {
+                //DataManager.instance.InputName
+                DataManager.instance.InputTime(playTime);
+                // 데이터매니저에서 해당 타임이 10위 안쪽인지 확인하고 이름 입력받는 UI 거쳐서 저장
+                UIManager.instance.GameOver_Image();
+                isSaved = true;
+            }
             return;
+        }
+        if (isPlaying)
+        {
+            playTime = Time.time - startTime;
         }
     }
 
@@ -49,10 +63,16 @@ public class GameManager : MonoBehaviour
     }
     public void SetIsPlaying(bool isPlaying)
     {
+        if(this.isPlaying == isPlaying)
+        {
+            return;
+        }
+
         this.isPlaying = isPlaying;
         if (isPlaying)
         {
             onStartGame.Invoke();
+            startTime = Time.time;
         }
     }
 }

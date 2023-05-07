@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rock
+  - Pipe
+  - Item
   layers:
   - Default
   - TransparentFX

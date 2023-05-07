@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text TouchText;
     [SerializeField] private Image rankingImage;
     [SerializeField] private InputField NameInput;
+    [SerializeField] private Image GameOver;
+    [SerializeField] private Text Timer;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
     private void LateUpdate()
     {
         CloseRanking();
+        Timer_output();
     }
 
     IEnumerator FontColor_co()  // Touch The Screen 색상 변경 Coroutine
@@ -65,6 +68,25 @@ public class UIManager : MonoBehaviour
 
     public void GetName()
     {
-        DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
+        if (GameManager.Instance.isGameOver)
+        {
+            NameInput.gameObject.SetActive(true);
+            DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
+        }
+    }
+
+    public void GameOver_Image()
+    {
+        GameOver.gameObject.SetActive(true);
+        rankingImage.gameObject.SetActive(true);
+    }
+
+    public void Timer_output()
+    {
+        float time = GameManager.Instance.playTime;
+
+        int min = Mathf.FloorToInt(time / 60);
+        int sec = Mathf.FloorToInt(time % 60);
+        Timer.text = string.Format("{0:D2} : {1:D2}", min, sec);
     }
 }

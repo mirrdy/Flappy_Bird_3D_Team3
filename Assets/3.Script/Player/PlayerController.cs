@@ -6,21 +6,22 @@ public class PlayerController : MonoBehaviour
 {
     private Touch touch;
     private Rigidbody myRigid;
-    private float mag = 15f;
-    private Vector3 force;
+    private float speed = 7f;
+    
+    private bool isFlying;
+
 
     private void Awake()
     {
         TryGetComponent(out myRigid);
         myRigid.useGravity = false;
-        force = Vector3.up * mag;
-        GameManager.Instance.onStartGame += (() => myRigid.useGravity = true);
+        GameManager.Instance.onStartGame += (() => isFlying = true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isGameOver)
+        if (GameManager.Instance.isGameOver || !isFlying)
         {
             return;
         }
@@ -33,47 +34,68 @@ public class PlayerController : MonoBehaviour
 
     private void InputTouch()
     {
+        Vector3 dirVector = speed * Time.deltaTime * Vector3.up;
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
             TouchPhase touchPhase = touch.phase;
-
+            
             switch (touchPhase)
             {
-                case TouchPhase.Began:
-                    {
-                        myRigid.AddForce(force);
-                        break;
-                    }
-                case TouchPhase.Moved:
-                    {
-                        myRigid.AddForce(force);
-                        break;
-                    }
+                case TouchPhase.Began: case TouchPhase.Moved:
                 case TouchPhase.Stationary:
                     {
-                        myRigid.AddForce(force);
+                        myRigid.MovePosition(transform.position + dirVector);
                         break;
                     }
-                case TouchPhase.Ended:
+                //case TouchPhase.Ended:
+                //    {
+                //        break;
+                //    }
+                //case TouchPhase.Canceled:
+                //    {
+                //        break;
+                //    }
+                default:
                     {
-                        break;
-                    }
-                case TouchPhase.Canceled:
-                    {
+                        //myRigid.MovePosition(transform.position - dirVector);
                         break;
                     }
             }
         }
+        else
+        {
+            myRigid.MovePosition(transform.position - dirVector);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Collide();
+        if (collision.collider.CompareTag("Pipe"))
+        {
+            Collide();
+        }
+        if(collision.collider.CompareTag("Item"))
+        {
+            if(collision.gameObject.TryGetComponent(out Ghost ghost))
+            {
+
+            }
+            else if(collision.gameObject.TryGetComponent(out SmallItem smallItem))
+            {
+
+            }
+        }
     }
     private void Collide()
     {
         Debug.Log("Ãæµ¹");
         GameManager.Instance.isGameOver = true;
+        myRigid.useGravity = true;
         myRigid.velocity = Vector3.zero;
     }
+
+
+
+
+
 }
