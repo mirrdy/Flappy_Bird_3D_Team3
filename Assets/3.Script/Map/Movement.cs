@@ -6,18 +6,22 @@ public class Movement : MonoBehaviour
 {
     private float moveSpeed = 15f;
 
-    public bool isPlay;
+    //public bool isPlay;
 
     private void OnEnable()
     {
-        isPlay = true;
+        //isPlay = false;
     }
 
     private void Update()
     {
-        if (isPlay)
+        //if (isPlay)
+        //{
+        //    transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        //}
+        if(GameManager.Instance.GetIsPlaying() && !GameManager.Instance.isGameOver)
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        }       
+        }
     }
 }

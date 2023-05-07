@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text TouchText;
     [SerializeField] private Image rankingImage;
+    [SerializeField] private InputField NameInput;
 
     private void Awake()
     {
@@ -58,6 +59,12 @@ public class UIManager : MonoBehaviour
         if (!rankingImage.gameObject.activeSelf)
         {
             TouchText.gameObject.SetActive(false);
+            GameManager.Instance.SetIsPlaying(true);
         }
+    }
+
+    public void GetName()
+    {
+        DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
     }
 }

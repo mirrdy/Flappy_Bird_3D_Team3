@@ -10,5 +10,6 @@ public class ButtonClick : MonoBehaviour
     public void Onclic_Ranking()
     {
         rankingImage.gameObject.SetActive(true);
+        DataManager.instance.Print();
     }
 }
