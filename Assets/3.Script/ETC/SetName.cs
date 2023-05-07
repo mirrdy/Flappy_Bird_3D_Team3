@@ -13,6 +13,5 @@ public class SetName : MonoBehaviour
     {
         UIManager.instance.SetName(inputName.text);
         inputfield.gameObject.SetActive(false);
-        Restart.gameObject.SetActive(true);
     }
 }

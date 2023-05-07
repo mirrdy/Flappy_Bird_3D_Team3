@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance = null;
 
     [SerializeField] private Text TouchText;
-    [SerializeField] private Image rankingImage;
+    [SerializeField] public Image rankingImage;
     [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
 

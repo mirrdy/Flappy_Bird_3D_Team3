@@ -144,5 +144,7 @@ public class DataManager : MonoBehaviour
                 return;
             }
         }
+        UIManager.instance.rankingImage.gameObject.SetActive(true);
+        Print();
     }
 }

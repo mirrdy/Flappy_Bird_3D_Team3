@@ -16,6 +16,5 @@ public class ButtonClick : MonoBehaviour
     public void ReSarte()
     {
         GameManager.Instance.RestartGame();
-        gameObject.SetActive(false);
     }
 }
