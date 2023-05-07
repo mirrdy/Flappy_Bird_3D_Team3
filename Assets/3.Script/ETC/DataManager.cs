@@ -84,7 +84,7 @@ public class DataManager : MonoBehaviour
                     rankingdata.Ranking[i] = ranking.Ranking[j];
                     rankingdata.name[i] = ranking.name[j];
                     rankingdata.time[i] = ranking.time[j];
-                    rankingdata.name[j] = "---";
+                    rankingdata.name[j] = "  ";
                     rankingdata.time[j] = 0f;
                     continue;
                 }
