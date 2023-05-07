@@ -34,17 +34,6 @@ public class DataManager : MonoBehaviour
 
         path = Application.dataPath + "/Resources/";
 
-        for(int i = 0; i < rankingdata.Ranking.Length; i++)
-        {
-            rankingdata.Ranking[i] = 0;
-            rankingdata.name[i] = "---";
-            rankingdata.time[i] = 0f;
-        }
-    }
-
-    public void Start()
-    {
-        SaveData();
         LoadData();
     }
 
@@ -95,7 +84,7 @@ public class DataManager : MonoBehaviour
                     rankingdata.Ranking[i] = ranking.Ranking[j];
                     rankingdata.name[i] = ranking.name[j];
                     rankingdata.time[i] = ranking.time[j];
-                    rankingdata.name[j] = "---";
+                    rankingdata.name[j] = "  ";
                     rankingdata.time[j] = 0f;
                     continue;
                 }
@@ -106,6 +95,8 @@ public class DataManager : MonoBehaviour
 
     public void Print()
     {
+        LoadData();
+
         NameText.text = rankingdata.name[0] + "\n" + "\n" +
                         rankingdata.name[1] + "\n" + "\n" +
                         rankingdata.name[2] + "\n" + "\n" +
@@ -131,17 +122,24 @@ public class DataManager : MonoBehaviour
                          (int)rankingdata.time[10] / 60 + " : " + (int)rankingdata.time[10] % 60 + "\n" + "\n";
     }
 
-    public RankingData InputName(string name)
+    public void InputName(string name)
     {
         rankingdata.name[10] = name;
-
-        return rankingdata;
     }
 
-    public RankingData InputTime(float time)
+    public void InputTime(float time)
     {
         rankingdata.time[10] = time;
-
-        return rankingdata;
+        for (int i = 0; i < 10; i++)
+        {
+            if (time > rankingdata.time[i])
+            {
+                UIManager.instance.GetName();
+                SaveData();
+                return;
+            }
+        }
+        SaveData();
+        return;
     }
 }
