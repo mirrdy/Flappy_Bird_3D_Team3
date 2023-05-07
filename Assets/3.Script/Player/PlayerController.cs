@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Touch touch;
     private Rigidbody myRigid;
-    private float speed = 15f;
+    private float speed = 7f;
     
     private bool isFlying;
 
@@ -34,12 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void InputTouch()
     {
+        Vector3 dirVector = speed * Time.deltaTime * Vector3.up;
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
             TouchPhase touchPhase = touch.phase;
-
-            Vector3 dirVector = Vector3.up * speed * Time.deltaTime;
             
             switch (touchPhase)
             {
@@ -59,10 +58,14 @@ public class PlayerController : MonoBehaviour
                 //    }
                 default:
                     {
-                        myRigid.MovePosition(transform.position - dirVector);
+                        //myRigid.MovePosition(transform.position - dirVector);
                         break;
                     }
             }
+        }
+        else
+        {
+            myRigid.MovePosition(transform.position - dirVector);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -76,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Ãæµ¹");
         GameManager.Instance.isGameOver = true;
+        myRigid.useGravity = true;
         myRigid.velocity = Vector3.zero;
     }
 }
