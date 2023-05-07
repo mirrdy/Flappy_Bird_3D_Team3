@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image rankingImage;
     [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
+    [SerializeField] private Button Restart;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(nameof(FontColor_co));
     }
-
+    
     private void LateUpdate()
     {
         CloseRanking();
@@ -95,5 +96,6 @@ public class UIManager : MonoBehaviour
     {
         rankingImage.gameObject.SetActive(true);
         DataManager.instance.Print();
+        Restart.gameObject.SetActive(true);
     }
 }
