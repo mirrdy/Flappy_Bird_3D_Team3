@@ -141,10 +141,12 @@ public class DataManager : MonoBehaviour
             if (time > rankingdata.time[i])
             {
                 UIManager.instance.GetName();
+                UIManager.instance.Restart.gameObject.SetActive(true);
                 return;
             }
         }
         UIManager.instance.rankingImage.gameObject.SetActive(true);
+        UIManager.instance.Restart.gameObject.SetActive(true);
         Print();
     }
 }

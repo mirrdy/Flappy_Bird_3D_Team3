@@ -11224,7 +11224,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 301995959}
         m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: ReSarte
+        m_MethodName: ReStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16583,6 +16583,7 @@ MonoBehaviour:
   rankingImage: {fileID: 247430905}
   NameInput: {fileID: 474049628}
   Timer: {fileID: 2060605906}
+  Restart: {fileID: 301995956}
 --- !u!4 &425135414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1311534305500314048, guid: 1850815f38acaab4085c2fb6a7ca2928, type: 3}
@@ -18877,7 +18878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputfield: {fileID: 474049628}
   inputName: {fileID: 1177107417}
-  Restart: {fileID: 301995956}
 --- !u!1001 &474564009
 PrefabInstance:
   m_ObjectHideFlags: 0

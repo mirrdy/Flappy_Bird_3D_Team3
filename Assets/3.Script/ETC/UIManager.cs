@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Image rankingImage;
     [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
+    [SerializeField] public Button Restart;
 
     private void Awake()
     {

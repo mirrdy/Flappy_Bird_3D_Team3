@@ -16,5 +16,12 @@ public class ButtonClick : MonoBehaviour
     public void ReStart()
     {
         GameManager.Instance.RestartGame();
+        StartCoroutine(nameof(Restart_co));
+    }
+
+    IEnumerator Restart_co()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameObject.SetActive(false);
     }
 }
