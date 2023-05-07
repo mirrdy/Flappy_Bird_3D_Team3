@@ -139,7 +139,5 @@ public class DataManager : MonoBehaviour
                 return;
             }
         }
-        SaveData();
-        return;
     }
 }

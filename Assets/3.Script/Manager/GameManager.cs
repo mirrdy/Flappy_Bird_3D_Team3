@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(isGameOver && !isPlaying)
+        if(isGameOver)
         {
             if(!isSaved)
             {
@@ -50,7 +50,10 @@ public class GameManager : MonoBehaviour
             }
             return;
         }
-        playTime = Time.time - startTime;
+        if (isPlaying)
+        {
+            playTime = Time.time - startTime;
+        }
     }
 
 
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
         this.isPlaying = isPlaying;
         if (isPlaying)
         {
+            startTime = Time.time;
             onStartGame.Invoke();
         }
     }
