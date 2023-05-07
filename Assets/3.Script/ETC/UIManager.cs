@@ -84,6 +84,8 @@ public class UIManager : MonoBehaviour
     {
         float time = GameManager.Instance.playTime;
 
-        Timer.text = (int)time / 60 + " : " + (int)time % 60;
+        int min = Mathf.FloorToInt(time / 60);
+        int sec = Mathf.FloorToInt(time % 60);
+        Timer.text = string.Format("{0:D2} : {1:D2}", min, sec);
     }
 }
