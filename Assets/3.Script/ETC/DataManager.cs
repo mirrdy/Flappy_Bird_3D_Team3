@@ -32,7 +32,12 @@ public class DataManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        path = Application.streamingAssetsPath + "/Resources/"; 
+        //path = Application.streamingAssetsPath + "/Resources/"; 
+        path = Application.persistentDataPath + "/Resources/";
+        if (!File.Exists(path + fileName + ".json"))
+        {
+            SaveData();
+        }
 
         LoadData();
     }
@@ -42,6 +47,10 @@ public class DataManager : MonoBehaviour
         UpdateRank();
 
         string data = JsonUtility.ToJson(rankingdata);
+        if(!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
         File.WriteAllText(path + fileName + ".json", data);
     }
 
