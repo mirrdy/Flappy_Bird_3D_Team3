@@ -55659,7 +55659,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -90, y: -65}
-  m_SizeDelta: {x: 324.40723, y: 820}
+  m_SizeDelta: {x: 324.40723, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268005447
 MonoBehaviour:
@@ -89582,8 +89582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  isPlaying: 0
   isGameOver: 0
+  startTime: 0
+  playTime: 0
 --- !u!4 &2033908673
 Transform:
   m_ObjectHideFlags: 0
