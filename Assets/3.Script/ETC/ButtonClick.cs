@@ -13,7 +13,7 @@ public class ButtonClick : MonoBehaviour
         DataManager.instance.Print();
     }
 
-    public void ReSarte()
+    public void ReStart()
     {
         GameManager.Instance.RestartGame();
     }
