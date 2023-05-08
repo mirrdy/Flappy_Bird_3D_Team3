@@ -8,14 +8,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigid;
     private float speed = 7f;
     private float itemTime = 5f;
+    private AudioSource myAudio;
 
+    [SerializeField] AudioClip itemClip;
+    [SerializeField] AudioClip wingClip;
+    [SerializeField] AudioClip dieClip;
 
     private bool isFlying;
-
 
     private void Awake()
     {
         TryGetComponent(out myRigid);
+        TryGetComponent(out myAudio);
         myRigid.useGravity = false;
         GameManager.Instance.onStartGame += (() => isFlying = true);
     }
@@ -47,6 +51,11 @@ public class PlayerController : MonoBehaviour
                 case TouchPhase.Began: case TouchPhase.Moved:
                 case TouchPhase.Stationary:
                     {
+                        if (!myAudio.isPlaying)
+                        {
+                            myAudio.PlayOneShot(wingClip);
+                        }
+
                         myRigid.MovePosition(transform.position + dirVector);
                         break;
                     }
@@ -78,6 +87,7 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.collider.CompareTag("Item"))
         {
+            myAudio.PlayOneShot(itemClip);
             if(collision.gameObject.TryGetComponent(out Ghost ghost))
             {
                 StartCoroutine(GhostItem_co());
@@ -115,6 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Collide()
     {
+        myAudio.PlayOneShot(dieClip);
         Debug.Log("Ãæµ¹");
         GameManager.Instance.isGameOver = true;
         myRigid.useGravity = true;
