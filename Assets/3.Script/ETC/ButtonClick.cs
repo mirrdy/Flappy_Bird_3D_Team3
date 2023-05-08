@@ -12,4 +12,16 @@ public class ButtonClick : MonoBehaviour
         rankingImage.gameObject.SetActive(true);
         DataManager.instance.Print();
     }
+
+    public void ReStart()
+    {
+        GameManager.Instance.RestartGame();
+        StartCoroutine(nameof(Restart_co));
+    }
+
+    IEnumerator Restart_co()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameObject.SetActive(false);
+    }
 }

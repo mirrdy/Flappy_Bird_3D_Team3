@@ -8,10 +8,10 @@ public class UIManager : MonoBehaviour
     public static UIManager instance = null;
 
     [SerializeField] private Text TouchText;
-    [SerializeField] private Image rankingImage;
-    [SerializeField] private InputField NameInput;
-    [SerializeField] private Image GameOver;
+    [SerializeField] public Image rankingImage;
+    [SerializeField] public  InputField NameInput;
     [SerializeField] private Text Timer;
+    [SerializeField] public Button Restart;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(nameof(FontColor_co));
     }
-
+    
     private void LateUpdate()
     {
         CloseRanking();
@@ -71,14 +71,7 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.isGameOver)
         {
             NameInput.gameObject.SetActive(true);
-            DataManager.instance.InputName(NameInput.GetComponent<InputField>().text);
         }
-    }
-
-    public void GameOver_Image()
-    {
-        GameOver.gameObject.SetActive(true);
-        rankingImage.gameObject.SetActive(true);
     }
 
     public void Timer_output()
@@ -88,5 +81,20 @@ public class UIManager : MonoBehaviour
         int min = Mathf.FloorToInt(time / 60);
         int sec = Mathf.FloorToInt(time % 60);
         Timer.text = string.Format("{0:D2} : {1:D2}", min, sec);
+    }
+
+    public void SetName(string text)
+    {
+        NameInput.text = text;
+        DataManager.instance.InputName(NameInput.text);
+        DataManager.instance.SaveData();
+
+        Invoke(nameof(SetName_rate), 0.2f);
+    }
+
+    public void SetName_rate()
+    {
+        rankingImage.gameObject.SetActive(true);
+        DataManager.instance.Print();
     }
 }

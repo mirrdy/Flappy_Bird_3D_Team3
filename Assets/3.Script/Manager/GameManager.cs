@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class GameManager : MonoBehaviour
                     instance = FindObjectOfType<GameManager>();
                 }
                 return instance;
-
             }
         }
     }
@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
                 //DataManager.instance.InputName
                 DataManager.instance.InputTime(playTime);
                 // 데이터매니저에서 해당 타임이 10위 안쪽인지 확인하고 이름 입력받는 UI 거쳐서 저장
-                UIManager.instance.GameOver_Image();
                 isSaved = true;
             }
             return;
@@ -74,5 +73,10 @@ public class GameManager : MonoBehaviour
             onStartGame.Invoke();
             startTime = Time.time;
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

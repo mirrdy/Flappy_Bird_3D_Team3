@@ -18,8 +18,8 @@ public class SmallItem : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(SmallItem_co(collision));
-            transform.position = new Vector3(collision.transform.position.x-40, 0, collision.transform.position.z);
+            //StartCoroutine(SmallItem_co(collision));
+            //transform.position = new Vector3(collision.transform.position.x - 40, 0, collision.transform.position.z);
             //movement.isPlay = false;
         }
     }
